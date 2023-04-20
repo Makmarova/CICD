@@ -1,0 +1,18 @@
+pipeline {
+   agent any
+   
+   stages {
+      stage('install req') {
+        steps{      
+          sh 'pip install pymssql'
+          sh 'pip install pytest'
+        }	
+      }
+
+      stage('runpy') {
+        steps{      
+          sh 'pytest test_task.py'
+        }
+      }
+    }
+}
