@@ -13,6 +13,14 @@ pipeline {
         steps{      
           sh 'pytest test_task.py'
         }
+		
+		stage('Move to separate branch') {
+    steps {
+        sh 'cp https://github.com/Makmarova/CICD/tree/develop/test_task.py https://github.com/Makmarova/CICD/tree/release-1.0'
+    }
+}
+
+		
       }
     }
 }
