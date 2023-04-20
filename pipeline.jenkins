@@ -20,7 +20,7 @@ pipeline {
             sh '''
                 git checkout release-1.0
                     git pull origin develop
-                    git checkout develop -- test_task.py
+                    git checkout origin/develop -- test_task.py
                     git config user.name "Your Name"
                     git config user.email "your_email@example.com"
                     git add test_task.py
