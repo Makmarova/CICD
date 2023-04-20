@@ -16,7 +16,11 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-        sh 'cp https://github.com/Makmarova/CICD/tree/develop/test_task.py https://github.com/Makmarova/CICD/tree/release-1.0'
+        sh 'git checkout release-1.0'
+		sh 'git checkout develop test_task.py'
+		sh 'git add test_task.py'
+		sh 'git commit -m "Move test_task.py to release-1.0 branch"'
+		sh 'git push origin release-1.0'
     }
 
       }
