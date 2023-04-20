@@ -16,11 +16,9 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-         withCredentials([gitLabConnection(credentialsId: 'Git-access')]) {
-            sh 'git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/Makmarova/CICD HEAD:release-1.0'
+            sh 'git push https://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@github.com/Makmarova/CICD.git HEAD:release-1.0'
          
         }
     }
-}
 }
 }
