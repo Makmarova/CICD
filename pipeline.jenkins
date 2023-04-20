@@ -16,7 +16,7 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-        withCredentials([usernamePassword(credentialsId: 'git-cred')]) {
+        withCredentials([usernamePassword(usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
             sh 'git push https://github.com/Makmarova/CICD HEAD:release-1.0'
         }
     }
