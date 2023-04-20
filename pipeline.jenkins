@@ -14,15 +14,5 @@ pipeline {
           sh 'pytest test_task.py'
         }
 	}
-		stage('Move to separate branch') {
-    steps {
-			withCredentials([usernamePassword(credentialsId: 'git-token')]) 
-                  {
-				  sh 'git push -u origin release-1.0'
-         
-        }
-    }
 }
-}
-
 }
