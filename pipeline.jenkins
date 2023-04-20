@@ -18,13 +18,11 @@ pipeline {
     steps {
         withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
             sh '''
-                git checkout release-1.0
+                    git checkout release-1.0
                     git pull origin develop
                     git checkout origin/develop -- test_task.py
-                    git config user.name "Your Name"
-                    git config user.email "your_email@example.com"
                     git add test_task.py
-                    git commit -m "Move test_task.py to release-1.0 branch"
+                    git commit -m "Add test_task.py to release-1.0 branch"
                     git push origin release-1.0
             '''
         }
