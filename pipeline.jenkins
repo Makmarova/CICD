@@ -14,10 +14,10 @@ pipeline {
           sh 'pytest test_task.py'
         }
 	}
-		stage('Move to release branch') {
+		stage('Move to separate branch') {
     steps {
-        withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-            sh 'git push https://github.com/Makmarova/CICD/ HEAD:release-1.0'
+        withCredentials([usernamePassword(credentialsId: 'git-cred', gitToolName: 'Default')]) {
+            sh 'git push https://github.com/Makmarova/CICD HEAD:release-1.0'
         }
     }
 }
