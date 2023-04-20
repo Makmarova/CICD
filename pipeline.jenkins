@@ -18,7 +18,6 @@ pipeline {
     steps {
         sh '''
 		git checkout release-1.0
-		git checkout develop test_task.py
 		git commit -m "Move test_task.py to release-1.0 branch"
 		git push origin release-1.0
 		'''
