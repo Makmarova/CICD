@@ -12,12 +12,12 @@ def test_sum_region_id():
     assert query_result[0][0] == 60, "Failed: Sum of region_ids is not 60"
 
 
-# Table Countries: Verify that minimum country_id is 'AR'
+# Table Countries: Verify that maximum country_id is 'ZW'
 def test_min_country_id():
-    cursor.execute('select min (country_id) from [hr].[countries]')
+    cursor.execute('select max (country_id) from [hr].[countries]')
     query_result = cursor.fetchall()
 
-    assert query_result[0][0] == 'AR', "Failed: Minimum country_id is not 'AR'"
+    assert query_result[0][0] == 'ZW', "Failed: Maximum country_id is not 'ZW'"
 
 
 # Table Employees: Verify that there is only one employee without a manager
