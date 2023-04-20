@@ -19,7 +19,7 @@ pipeline {
 			withCredentials([UsernamePassword(credentialsId: 'git-token')]) 
                   {
 
-            sh 'git push https://github.com/Makmarova/CICD.git HEAD:release-1.0'
+            sh 'git push -u origin release-1.0'
          
         }
     }
