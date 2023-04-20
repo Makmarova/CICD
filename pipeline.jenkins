@@ -16,7 +16,7 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-            sh 'git push https://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@github.com/Makmarova/CICD.git HEAD:release-1.0'
+            sh 'git push https://github.com/Makmarova/CICD HEAD:release-1.0'
          
         }
     }
