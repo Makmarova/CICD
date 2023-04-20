@@ -16,7 +16,7 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-			withCredentials([UsernamePassword(credentialsId: 'git-token')]) 
+			withCredentials([usernamePassword(credentialsId: 'git-token')]) 
                   {
 				  sh 'git push -u origin release-1.0'
          
