@@ -16,10 +16,15 @@ pipeline {
 	}
 		stage('Move to separate branch') {
     steps {
-			sh 'git config --global user.name "makmarova"'
-			sh 'git config --global user.email "makmarova@gmail.com"'
-            sh 'git push https://github.com/Makmarova/CICD HEAD:release-1.0'
+        withCredentials([usernamePassword(credentialsId: 'git-cred', 
+                                          usernameVariable: 'GIT_USERNAME', 
+                                          passwordVariable: 'GIT_PASSWORD')]) {
+            sh '''
+                git config --global user.name "DQE"
+                git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/Makmarova/CICD HEAD:release-1.0
+            '''
         }
     }
+}
 }
 }
